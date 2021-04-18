@@ -9,3 +9,4 @@
 #include "is_equatable.h"
 #include "is_member_of.h"
 #include "is_predicate.h"
+#include "is_streamable.h"

@@ -3,10 +3,13 @@
 
 #include "template_helpers.h"
 
-using namespace std;
-
 int main()
 {
-	cout << "Hello CMake." << endl;
+	static_assert(is_streamable_v<const int&>, "Error!");
+	static_assert(is_streamable_v<const float&>, "Error!");
+	static_assert(is_streamable_v<const int*&>, "Error!");
+	static_assert(is_streamable_v<const int[]>, "Error!");
+	static_assert(is_streamable_v<const void*>, "Error!");
+	static_assert(is_streamable_v<const void(*)()>, "Error!");
 	return 0;
 }
