@@ -10,3 +10,4 @@
 #include "is_member_of.h"
 #include "is_predicate.h"
 #include "is_streamable.h"
+#include "convert_string.h"
