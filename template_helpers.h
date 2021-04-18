@@ -11,3 +11,4 @@
 #include "is_predicate.h"
 #include "is_streamable.h"
 #include "convert_string.h"
+#include "get_param.h"
