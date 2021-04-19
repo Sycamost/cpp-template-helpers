@@ -3,7 +3,7 @@
 
 #pragma once
 
-#if _HAS_CXX_17
+#if _HAS_CXX17
 
 #include "is_comparison.h"
 #include "is_equatable.h"

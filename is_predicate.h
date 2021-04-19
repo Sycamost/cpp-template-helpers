@@ -1,7 +1,7 @@
 #pragma once
 #include <type_traits>
 
-#if _HAS_CXX_17
+#if _HAS_CXX17
 
 
 namespace template_helpers
