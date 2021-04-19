@@ -1,6 +1,9 @@
 #pragma once
 #include <type_traits>
 
+#if _HAS_CXX_17
+
+
 namespace template_helpers
 {
 
@@ -23,3 +26,9 @@ namespace template_helpers
 	static const bool constexpr is_const_member_of_v = is_const_member_of<_Callable, _Type, _Args...>::value;
 
 }
+
+#else
+
+#error "template_helpers requires C++17 or greater."
+
+#endif

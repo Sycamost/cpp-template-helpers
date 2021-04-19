@@ -3,6 +3,9 @@
 #include <ostream>
 #include <sstream>
 
+#if _HAS_CXX_17
+
+
 namespace template_helpers
 {
 
@@ -30,3 +33,9 @@ namespace template_helpers
     inline constexpr bool is_streamable_v = is_streamable<_Type, _Stream>::value;
 
 }
+
+#else
+
+#error "template_helpers requires C++17 or greater."
+
+#endif

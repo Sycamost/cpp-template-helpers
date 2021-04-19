@@ -1,5 +1,8 @@
 #pragma once
 
+#if _HAS_CXX_17
+
+
 namespace template_helpers
 {
 
@@ -14,3 +17,9 @@ namespace template_helpers
     };
 
 }
+
+#else
+
+#error "template_helpers requires C++17 or greater."
+
+#endif

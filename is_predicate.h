@@ -1,6 +1,9 @@
 #pragma once
 #include <type_traits>
 
+#if _HAS_CXX_17
+
+
 namespace template_helpers
 {
 
@@ -22,3 +25,9 @@ namespace template_helpers
 	inline constexpr bool is_predicate_v = is_predicate<_Predicate, _Type>::value;
 
 }
+
+#else
+
+#error "template_helpers requires C++17 or greater."
+
+#endif

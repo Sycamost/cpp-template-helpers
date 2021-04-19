@@ -1,6 +1,9 @@
 #pragma once
 #include <type_traits>
 
+#if _HAS_CXX_17
+
+
 namespace template_helpers
 {
 
@@ -28,3 +31,9 @@ namespace template_helpers
     inline constexpr bool is_equatable_self_v = is_equatable_self<_Type>::value;
 
 }
+
+#else
+
+#error "template_helpers requires C++17 or greater."
+
+#endif
