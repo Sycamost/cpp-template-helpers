@@ -1,7 +1,7 @@
 #pragma once
 #include <type_traits>
 #include <ostream>
-#include <sstream>
+#include <string>
 
 #if _HAS_CXX17
 
@@ -12,11 +12,9 @@ namespace template_helpers
     template<
         typename _Type,
         typename _Stream = std::ostringstream,
-        typename _StreamElem = std::ostringstream::char_type,
-        typename _StreamTraits = std::char_traits<_StreamElem>,
-        std::enable_if_t<std::is_base_of_v<std::basic_ostream<_StreamElem, _StreamTraits>, _Stream>, bool> = true
+        std::enable_if_t<std::is_base_of_v<std::basic_ostringstream<typename _Stream::char_type, typename std::char_traits<typename _Stream::char_type>>, _Stream>, bool> = true
     >
-        class is_streamable
+    class is_streamable
     {
         template<typename __Type, typename __Stream>
         static auto test(int)
@@ -30,7 +28,17 @@ namespace template_helpers
     };
 
     template<typename _Type, typename _Stream = std::ostringstream>
-    inline constexpr bool is_streamable_v = is_streamable<_Type, _Stream>::value;
+    inline constexpr bool is_streamable_v = is_streamable<_Type, _Stream, _StreamElem, _StreamTraits>::value;
+
+    template<
+        typename _Type,
+        typename _Stream = std::wostringstream,
+        std::enable_if_t<std::is_base_of_v<std::basic_ostringstream<wchar_t, std::char_traits<wchar_t>>, _Stream>, bool> = true
+    >
+    using is_w_streamable = is_streamable<_Type, _Stream>;
+
+    template<typename _Type, typename _Stream = std::wostringstream>
+    inline constexpr bool is_w_streamable_v = is_w_streamable<_Type, _Stream>::value;
 
 }
 

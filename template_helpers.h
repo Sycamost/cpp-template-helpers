@@ -2,6 +2,7 @@
 // or project specific include files.
 
 #pragma once
+#include <vcruntime.h>
 
 #if _HAS_CXX17
 
