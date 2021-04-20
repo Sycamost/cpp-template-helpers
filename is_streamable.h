@@ -28,7 +28,7 @@ namespace template_helpers
     };
 
     template<typename _Type, typename _Stream = std::ostringstream>
-    inline constexpr bool is_streamable_v = is_streamable<_Type, _Stream, _StreamElem, _StreamTraits>::value;
+    inline constexpr bool is_streamable_v = is_streamable<_Type, _Stream>::value;
 
     template<
         typename _Type,

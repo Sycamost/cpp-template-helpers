@@ -13,7 +13,7 @@ namespace template_helpers
     }
 
     template<class T, std::enable_if_t<std::is_convertible_v<T, std::wstring>, bool> = true>
-    std::string convert_wstring(T t) {
+    std::wstring convert_wstring(T t) {
         return static_cast<std::wstring>(t);
     }
 
