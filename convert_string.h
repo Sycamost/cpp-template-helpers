@@ -23,7 +23,7 @@ namespace template_helpers
         > = true
     >
         std::string convert_string(T t) {
-        std::ostringstream stream = std::ostringstream();
+        std::ostream stream = std::ostream();
         stream << t;
         return stream.str();
     }
